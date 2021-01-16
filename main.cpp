@@ -9,8 +9,8 @@ int main(){
     n = tree->add(n,125);
     n = tree->add(n,44);
     n = tree->add(n,60);
-    n = tree->add(n,105);
-    n = tree->add(n,130);
-    tree->sort(n);
+
+    tree->sort_postorder(n);
+    delete tree;
 
 }

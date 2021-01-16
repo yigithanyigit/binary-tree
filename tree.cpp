@@ -1,11 +1,11 @@
 #include "tree.h"
-#include <cstdlib>
 #include <iostream>
+
 
 
 Tree::node * Tree::add(node *tree, int x) {
     if(tree == nullptr){
-        Tree::node * tree = (Tree::node *)malloc(sizeof(tree));
+        Tree::node * tree = (node *)malloc(sizeof(node));
         tree ->right = nullptr;
         tree ->left = nullptr;
         tree ->data = x;
@@ -19,10 +19,29 @@ Tree::node * Tree::add(node *tree, int x) {
     return tree;
 }
 
-void Tree::sort(Tree::node *tree) {
+void Tree::sort_inorder(node *tree) {
     if(tree == nullptr)
         return;
-    sort(tree ->left);
+    sort_inorder(tree ->left);
     printf("%d ", tree -> data);
-    sort(tree ->right);
+    sort_inorder(tree ->right);
+    free(tree);
+}
+
+void Tree::sort_preorder(node *tree) {
+    if(tree == nullptr)
+        return;
+    printf("%d ", tree -> data);
+    sort_preorder(tree -> left);
+    sort_preorder(tree -> right);
+    free(tree);
+}
+
+void Tree::sort_postorder(node *tree) {
+    if(tree == nullptr)
+        return;
+    sort_postorder(tree ->left);
+    sort_postorder(tree ->right);
+    printf("%d ", tree -> data);
+    free(tree);
 }
