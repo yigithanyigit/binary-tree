@@ -1,2 +1,2 @@
 # binary-tree
-Include binary tree clas which is incldue diffrent sorting methods.
+Include binary tree class which is include diffrent sorting methods.
